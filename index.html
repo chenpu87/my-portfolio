@@ -249,10 +249,22 @@
             grid-template-columns: 1fr 1.2fr;
             gap: 20px;
         }
+		.p03 .img-part-1 { 
+		            background-image: url('./assets/p03-01.jpeg'); 
+		            background-size: cover;
+		            background-position: center;
+		            background-color: #E0DCD6; /* 測試底色 */
+		            height: 100%; /* 強制確保區塊有高度 */
+		        }
         
-        .p03 .img-part-1 { background: url('https://images.unsplash.com/photo-1511141151676-cd26815349f4?q=80&w=600') center/cover; }
-        .p03 .img-part-2 { background: url('https://images.unsplash.com/photo-1520032416193-7661005f03a6?q=80&w=600') center/cover; margin-top: 50px; } /* 高低差 */
-
+		        .p03 .img-part-2 { 
+		            background-image: url('./assets/p03-02.jpeg?v=2'); 
+		            background-size: cover;
+		            background-position: center;
+		            background-color: #E0DCD6; /* 測試底色 */
+		            margin-top: 50px; 
+		            height: calc(100% - 50px); 
+		        }
         /* --- 通用專案樣式 --- */
         .project-title { font-size: 2.2rem; margin: 15px 0; color: var(--dark-coffee); line-height: 1.2; }
         .project-desc { margin-bottom: 25px; font-weight: 300; color: #4a4540; font-size: 0.95rem;}
@@ -384,7 +396,7 @@
                 <span class="hero-title-1st revealactive">CULTIVATING</span>
                 <span class="hero-title-2nd revealactive">VISIONS</span>
             </h1>
-            <p class="sub-serif revealactive" style="color: var(--olive); margin-top: 20px;">Marketing Design & Future Taste</p>
+            <p class="sub-serif revealactive" style="color: var(--olive); margin-top: 20px;">Brand Aesthetics, Experiential Design & Product Innovation</p>
         </div>
         <div class="hero-img-floating"></div>
     </section>
@@ -398,11 +410,11 @@
         <div class="project-container p01">
             <div class="project-num serif reveal">01</div>
             <div class="project-img-wrapper reveal">
-                <img src="https://images.unsplash.com/photo-1549497538-303791108f94?q=80&w=1200" alt="ARCHITECTURAL BRANDING">
+                <img src="./assets/good things good memory 2.png" alt="ARCHITECTURAL BRANDING">
             </div>
             <div class="project-info reveal">
                 <span class="sub-serif">The Blueprint Series</span>
-                <h3 class="project-title">AXIS建築品牌<br>視覺識別</h3>
+                <h3 class="project-title">Car"N"Love<br>視覺識別</h3>
                 <p class="project-desc">運用強烈的幾何線條與高對比黑白視覺，將行銷Campaign轉化為一種空間體驗。</p>
                 <a href="#" class="sub-serif" style="border-bottom: 1px solid var(--olive);">View Details →</a>
             </div>
@@ -417,7 +429,7 @@
                 <a href="#" class="sub-serif" style="border-bottom: 1px solid var(--caramel);">Explore Collection →</a>
             </div>
             <div class="project-img-wrapper reveal">
-                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200" alt="ORGANIC TEXTURES">
+                <img src="./assets/back history.jpg" alt="ORGANIC TEXTURES">
             </div>
         </div>
 
@@ -427,7 +439,7 @@
                 <span class="sub-serif">Future Objects</span>
                 <h3 class="project-title">NOVA數位工藝<br>網頁提案</h3>
                 <p class="project-desc">破格排版與垂直標題設計，為科技硬體品牌重新定義質感，強調工業美學與材質細節。</p>
-                <a href="#" class="sub-serif" style="border-bottom: 1px solid var(--dark-coffee);">Case Study →</a>
+                <a href="https://chenpu87.github.io/my-portfolio" class="sub-serif" style="border-bottom: 1px solid var(--dark-coffee);">Case Study →</a>
             </div>
             <div class="project-img-wrapper reveal">
                 <div class="img-part-1"></div>
@@ -463,8 +475,8 @@
         </div>
         <div class="contact-links reveal">
             <span class="sub-serif">Inquiries</span>
-            <p class="serif" style="font-style: italic; margin-top: 10px;">collab@future.est</p>
-            <a href="mailto:collab@future.est" class="btn-cta">Initiate Project</a>
+            <p class="serif" style="font-style: italic; margin-top: 10px;">sixthxenz@gmail.com</p>
+            <a href="mailto:sixthxenz@gmail.com" class="btn-cta">Initiate Project</a>
             
             <div style="margin-top: 80px; display: flex; justify-content: flex-end; gap: 30px; font-weight: 200; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">
                 <a href="#">IG</a>
