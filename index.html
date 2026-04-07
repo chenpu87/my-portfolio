@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Marketing Portfolio | Future Vision</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-taupe: #B4A99A; /* 暖灰褐 */
+            --cream: #F5F2ED;    /* 米白 */
+            --olive: #3D4430;    /* 深橄欖綠 */
+            --caramel: #A67049;  /* 焦糖棕 */
+            --dark-coffee: #2C241E; /* 深咖啡 */
+            --text-main: #2C241E;
+            --ease: cubic-bezier(0.23, 1, 0.32, 1);
+            --transition-long: all 1s var(--ease);
+            --transition-mid: all 0.6s var(--ease);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-taupe);
+            color: var(--text-main);
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+        }
+        
+        .sub-serif {
+            font-family: Cormorant Garamond, serif;
+            font-style: italic;
+            font-size: 1.1rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition-mid);
+        }
+
+        /* --- Helper Classes for Reveal Action --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: var(--transition-long);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- 1. Custom Cursor (多一點精緻感) --- */
+        #custom-cursor {
+            width: 20px;
+            height: 20px;
+            background: rgba(44, 36, 30, 0.3);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width 0.3s ease, height 0.3s ease, background 0.3s ease;
+        }
+        
+        a:hover ~ #custom-cursor, .project-img-wrapper:hover ~ #custom-cursor {
+            width: 80px;
+            height: 80px;
+            background: rgba(166, 112, 73, 0.2); /* Caramel halo */
+            mix-blend-mode: difference;
+        }
+
+        /* --- Navigation (更隱蔽，強調內容) --- */
+        nav {
+            padding: 30px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            mix-blend-mode: difference; /* 文字顏色會隨背景改變 */
+            color: var(--cream);
+        }
+        .logo { font-size: 1rem; font-weight: 500; letter-spacing: 4px; }
+        .nav-links a { margin-left: 30px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* --- 2. Hero Section (破格、Typography as Art) --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--cream);
+            position: relative;
+            padding: 0 10%;
+        }
+
+        .hero-title-wrapper {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 15vw, 12rem);
+            line-height: 0.85;
+            text-transform: uppercase;
+            letter-spacing: -5px;
+            color: var(--olive);
+            mix-blend-mode: multiply; /* 與背景圖片融合 */
+        }
+        
+        .hero h1 span {
+            display: block;
+        }
+        
+        .hero-title-1st { transform: translateX(-15%); }
+        .hero-title-2nd { transform: translateX(10%); color: var(--caramel); }
+
+        .hero-img-floating {
+            position: absolute;
+            width: 35vw;
+            height: 50vh;
+            background: url('https://images.unsplash.com/photo-1515895309281-c181773099c0?q=80&w=1200') center/cover no-repeat;
+            opacity: 0.7;
+            z-index: 1;
+            top: 20%;
+            right: 15%;
+            filter: grayscale(50%);
+            transition: var(--transition-long);
+        }
+        
+        .hero:hover .hero-img-floating {
+            transform: scale(1.05) translate(-20px, 10px);
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* --- 3. Works Section (不對稱策展感) --- */
+        .works { padding: 150px 0; background-color: var(--bg-taupe); }
+        .works-header { text-align: left; padding: 0 10%; margin-bottom: 100px; }
+        .works-header h2 { font-size: 4rem; color: var(--cream); }
+
+        .project-container {
+            position: relative;
+            margin-bottom: 30vh; /* 增加專案間距，創造視差感 */
+            padding: 0 5%;
+        }
+
+        /* --- Project 01: Minimal, Stark, High-Contrast --- */
+        .p01 { display: grid; grid-template-columns: repeat(12, 1fr); align-items: end; }
+        
+        .p01 .project-num {
+            grid-column: 1 / 4;
+            font-size: 15rem;
+            color: var(--cream);
+            line-height: 1;
+            margin-bottom: -30px;
+            z-index: 2;
+        }
+        
+        .p01 .project-img-wrapper {
+            grid-column: 3 / 10;
+            height: 70vh;
+            background-color: var(--olive);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .p01 .project-img-wrapper img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: contrast(120%) brightness(90%);
+        }
+        
+        .p01 .project-info {
+            grid-column: 10 / 13;
+            padding-left: 40px;
+            color: var(--olive);
+        }
+
+        /* --- Project 02: Warm, Textural, Layered --- */
+        .p02 { position: relative; }
+        
+        .p02 .project-img-wrapper {
+            width: 60%;
+            height: 80vh;
+            margin-left: auto;
+            background: var(--caramel);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .p02 .project-img-wrapper::after { /* 裝飾色塊破格 */
+            content: '';
+            position: absolute;
+            width: 30%; height: 40%;
+            background: var(--dark-coffee);
+            top: -10%; left: -15%;
+            z-index: -1;
+        }
+
+        .p02 .project-info {
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 35%;
+            background: var(--cream);
+            padding: 60px;
+            z-index: 10;
+            box-shadow: 20px 20px 0 rgba(166, 112, 73, 0.1);
+        }
+        
+        .p02 .project-num { font-size: 8rem; color: var(--caramel); opacity: 0.3; }
+
+        /* --- Project 03: Experimental, Grid-Breaking, Vertical --- */
+        .p03 { display: flex; align-items: flex-start; gap: 5%; }
+        
+        .p03 .project-info {
+            width: 30%;
+            text-align: right;
+            padding-top: 100px;
+        }
+        
+        .p03 .project-num {
+            font-size: 12rem;
+            color: var(--dark-coffee);
+            writing-mode: vertical-rl; /* 垂直文字，破格設計 */
+            transform: rotate(180deg);
+            line-height: 1;
+        }
+
+        .p03 .project-img-wrapper {
+            width: 65%;
+            height: 90vh;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 20px;
+        }
+        
+        .p03 .img-part-1 { background: url('https://images.unsplash.com/photo-1511141151676-cd26815349f4?q=80&w=600') center/cover; }
+        .p03 .img-part-2 { background: url('https://images.unsplash.com/photo-1520032416193-7661005f03a6?q=80&w=600') center/cover; margin-top: 50px; } /* 高低差 */
+
+        /* --- 通用專案樣式 --- */
+        .project-title { font-size: 2.2rem; margin: 15px 0; color: var(--dark-coffee); line-height: 1.2; }
+        .project-desc { margin-bottom: 25px; font-weight: 300; color: #4a4540; font-size: 0.95rem;}
+        
+        .project-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition-long); }
+        .project-img-wrapper:hover img { transform: scale(1.03); }
+
+        /* --- 4. Style Direction (藝廊式Moodboard) --- */
+        .visual-system {
+            background-color: var(--dark-coffee);
+            color: var(--cream);
+            padding: 150px 10%;
+            position: relative;
+        }
+        
+        .visual-system h2 { font-size: 3rem; margin-bottom: 80px; text-align: center; color: var(--caramel); }
+
+        .mood-curation {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(3, 150px);
+            gap: 15px;
+        }
+        
+        .mood-curation div { transition: var(--transition-mid); }
+        .mood-curation div:hover { transform: translateY(-5px); }
+
+        .mood-img-1 { grid-column: 1 / 3; grid-row: 1 / 3; background: url('https://images.unsplash.com/photo-1506459225024-1428097a7e18?q=80&w=600') center/cover; }
+        .mood-color-1 { grid-column: 3 / 4; grid-row: 1 / 2; background: var(--olive); }
+        .mood-text-1 { grid-column: 4 / 6; grid-row: 1 / 2; border: 1px solid rgba(245,242,237,0.1); padding: 20px; display: flex; align-items: center; }
+        
+        .mood-color-2 { grid-column: 3 / 5; grid-row: 2 / 3; background: var(--caramel); }
+        .mood-img-2 { grid-column: 5 / 6; grid-row: 2 / 4; background: url('https://images.unsplash.com/photo-1582201943021-e8e5b319d80d?q=80&w=600') center/cover; }
+
+        .mood-text-2 { grid-column: 1 / 3; grid-row: 3 / 4; padding: 20px; font-family: Cormorant Garamond; font-style: italic; font-size: 1.5rem; color: var(--bg-taupe); }
+        .mood-color-3 { grid-column: 3 / 4; grid-row: 3 / 4; background: var(--cream); }
+        .mood-color-4 { grid-column: 4 / 5; grid-row: 3 / 4; background: var(--dark-coffee); border: 1px solid var(--cream); }
+
+        /* --- 5. Contact Section (極簡、重擊感) --- */
+        .contact {
+            padding: 200px 10%;
+            background-color: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .contact-title-wrapper h2 {
+            font-size: clamp(4rem, 10vw, 8rem);
+            text-transform: uppercase;
+            letter-spacing: -3px;
+            color: var(--dark-coffee);
+            line-height: 0.9;
+        }
+
+        .contact-links {
+            text-align: right;
+        }
+        
+        .contact-links p { font-size: 1.8rem; color: var(--caramel); }
+        
+        .btn-cta {
+            margin-top: 40px;
+            padding: 25px 60px;
+            background: var(--dark-coffee);
+            color: var(--cream);
+            display: inline-block;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            position: relative;
+            transition: var(--transition-mid);
+        }
+        
+        .btn-cta:hover {
+            background: var(--olive);
+            transform: translateY(-3px);
+            box-shadow: 10px 10px 0 rgba(61, 68, 48, 0.2);
+        }
+
+        /* --- Footer (更乾淨) --- */
+        footer {
+            padding: 50px;
+            background: var(--cream);
+            text-align: center;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.4;
+            color: var(--dark-coffee);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 6rem; letter-spacing: -2px;}
+            .hero-img-floating { width: 60vw; height: 40vh; right: 5%; top: 30%;}
+            
+            .project-container { margin-bottom: 15vh; }
+            .p01, .p02, .p03 { display: block; }
+            .project-img-wrapper { width: 100% !important; height: 50vh !important; margin: 0 !important; }
+            .p01 .project-num, .p02 .project-num { font-size: 6rem; position: static; margin-bottom: 20px;}
+            .p03 .project-num { writing-mode: horizontal-tb; transform: rotate(0); font-size: 6rem;}
+            .project-info { width: 100% !important; padding: 40px 0 !important; position: static !important; background: transparent !important; box-shadow: none !important;}
+            
+            .mood-curation { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+            .mood-curation div { grid-column: auto !important; grid-row: auto !important; height: 150px;}
+            .mood-text-1, .mood-text-2 { height: auto !important; padding: 20px 0;}
+            
+            .contact { flex-direction: column; text-align: center; gap: 50px;}
+            .contact-links { text-align: center;}
+        }
+    </style>
+</head>
+<body>
+
+    <div id="custom-cursor"></div>
+
+    <nav>
+        <div class="logo">FUTURE.ESTHETICS</div>
+        <div class="nav-links">
+            <a href="#works">Curation</a>
+            <a href="#contact">Connect</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-title-wrapper">
+            <h1>
+                <span class="hero-title-1st revealactive">CULTIVATING</span>
+                <span class="hero-title-2nd revealactive">VISIONS</span>
+            </h1>
+            <p class="sub-serif revealactive" style="color: var(--olive); margin-top: 20px;">Marketing Design & Future Taste</p>
+        </div>
+        <div class="hero-img-floating"></div>
+    </section>
+
+    <section id="works" class="works">
+        <div class="works-header">
+            <span class="sub-serif reveal" style="color: var(--cream);">The Collection</span>
+            <h2 class="reveal">Selected<br>Curations</h2>
+        </div>
+
+        <div class="project-container p01">
+            <div class="project-num serif reveal">01</div>
+            <div class="project-img-wrapper reveal">
+                <img src="https://images.unsplash.com/photo-1549497538-303791108f94?q=80&w=1200" alt="ARCHITECTURAL BRANDING">
+            </div>
+            <div class="project-info reveal">
+                <span class="sub-serif">The Blueprint Series</span>
+                <h3 class="project-title">AXIS建築品牌<br>視覺識別</h3>
+                <p class="project-desc">運用強烈的幾何線條與高對比黑白視覺，將行銷Campaign轉化為一種空間體驗。</p>
+                <a href="#" class="sub-serif" style="border-bottom: 1px solid var(--olive);">View Details →</a>
+            </div>
+        </div>
+
+        <div class="project-container p02">
+            <div class="project-info reveal">
+                <div class="project-num serif">02</div>
+                <span class="sub-serif">Tactile Narrative</span>
+                <h3 class="project-title">SOULA有機織物<br>社群敘事</h3>
+                <p class="project-desc">將焦糖棕與大地色調分層疊加，創造一種「可觸摸」的數位體驗，提升精品家具受眾互動。</p>
+                <a href="#" class="sub-serif" style="border-bottom: 1px solid var(--caramel);">Explore Collection →</a>
+            </div>
+            <div class="project-img-wrapper reveal">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=1200" alt="ORGANIC TEXTURES">
+            </div>
+        </div>
+
+        <div class="project-container p03">
+            <div class="project-info reveal">
+                <div class="project-num serif">03</div>
+                <span class="sub-serif">Future Objects</span>
+                <h3 class="project-title">NOVA數位工藝<br>網頁提案</h3>
+                <p class="project-desc">破格排版與垂直標題設計，為科技硬體品牌重新定義質感，強調工業美學與材質細節。</p>
+                <a href="#" class="sub-serif" style="border-bottom: 1px solid var(--dark-coffee);">Case Study →</a>
+            </div>
+            <div class="project-img-wrapper reveal">
+                <div class="img-part-1"></div>
+                <div class="img-part-2"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="visual-system">
+        <div class="container">
+            <span class="sub-serif reveal" style="color: var(--bg-taupe); text-align: center; display: block; margin-bottom: 20px;">The Aesthetic Code</span>
+            <h2 class="reveal">Future<br>Taste Direction</h2>
+            
+            <div class="mood-curation reveal">
+                <div class="mood-img-1"></div>
+                <div class="mood-color-1"></div>
+                <div class="mood-text-1 sub-serif">The synthesis of architecture and emotion.</div>
+                
+                <div class="mood-color-2"></div>
+                <div class="mood-img-2"></div>
+
+                <div class="mood-text-2 serif">Tactile Minimalism.</div>
+                <div class="mood-color-3"></div>
+                <div class="mood-color-4"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="contact-title-wrapper reveal">
+            <h2>LET'S<br>BUID THE<br>FUTURE</h2>
+        </div>
+        <div class="contact-links reveal">
+            <span class="sub-serif">Inquiries</span>
+            <p class="serif" style="font-style: italic; margin-top: 10px;">collab@future.est</p>
+            <a href="mailto:collab@future.est" class="btn-cta">Initiate Project</a>
+            
+            <div style="margin-top: 80px; display: flex; justify-content: flex-end; gap: 30px; font-weight: 200; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 2px;">
+                <a href="#">IG</a>
+                <a href="#">BE</a>
+                <a href="#">LN</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Future Esthetics Portfolio. Curated for your taste.</p>
+    </footer>
+
+    <script>
+        // 1. Custom Cursor Follow
+        const cursor = document.getElementById('custom-cursor');
+        document.addEventListener('mousemove', e => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        // 2. Scroll Reveal Animation (顯隱動畫)
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            for (let i = 0; i < reveals.length; i++) {
+                const windowHeight = window.innerHeight;
+                const elementTop = reveals[i].getBoundingClientRect().top;
+                const elementVisible = 150; // 滾動到元素上方150px時觸發
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add('active');
+                }
+            }
+        }
+        window.addEventListener('scroll', reveal);
+
+        // 3. Simple Parallax for Floating Images (視差效果)
+        window.addEventListener('scroll', () => {
+            const floatingImg = document.querySelector('.hero-img-floating');
+            const scrolled = window.scrollY;
+            if (floatingImg) {
+                floatingImg.style.transform = `translateY(${scrolled * 0.1}px)`; // 圖片向上移動 滾動距離的10%
+            }
+            
+            const p02Img = document.querySelector('.p02 .project-img-wrapper');
+            if(p02Img){
+                const p02Top = p02Img.parentElement.getBoundingClientRect().top;
+                 p02Img.style.transform = `translateY(${p02Top * -0.05}px)`; 
+            }
+        });
+
+        // 初始載入
+        window.onload = function(){
+            // 讓Hero的文字直接顯現
+            const heroActive = document.querySelectorAll('.revealactive');
+            heroActive.forEach(el => el.classList.add('active'));
+            // 執行一次reveal檢查其他元素
+            reveal();
+        }
+    </script>
+</body>
+</html>
