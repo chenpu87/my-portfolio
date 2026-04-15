@@ -74,6 +74,22 @@ nav{position:sticky;top:0;z-index:100;padding:0 2.5rem;height:60px;display:flex;
 .val-num{font-family:var(--font-display);font-size:3rem;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,var(--violet),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:1rem;}
 .val-title{font-family:var(--font-display);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:.75rem;}
 .val-desc{font-size:13px;color:var(--muted);line-height:1.8;font-weight:300;}
+.val-img-slot{margin-top:1.25rem;border:1px solid rgba(176,96,255,0.35);height:80px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;box-shadow:0 0 10px rgba(176,96,255,0.08);}
+.val-img-slot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+.val-img-slot .slot-label{font-family:var(--font-display);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(176,96,255,0.5);text-align:center;pointer-events:none;z-index:1;}
+
+/* ── Project image slides ── */
+.card-slides{position:absolute;inset:0;width:100%;height:100%;}
+.card-slide{position:absolute;inset:0;opacity:0;transition:opacity .6s ease;width:100%;height:100%;object-fit:cover;display:block;}
+.card-slide.active{opacity:1;}
+.card-slide-canvas{position:absolute;inset:0;width:100%;height:100%;transition:opacity .6s ease;}
+.card-slide-canvas.hidden{opacity:0;pointer-events:none;}
+.slide-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10;}
+.slide-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.2);cursor:pointer;transition:background .25s,transform .25s;border:none;padding:0;}
+.slide-dot.active{background:var(--violet);transform:scale(1.4);}
+.slide-arrow{position:absolute;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;border:1px solid rgba(176,96,255,0.35);background:rgba(6,6,8,0.6);color:var(--violet);display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:10;font-size:13px;transition:border-color .25s,background .25s;}
+.slide-arrow:hover{border-color:var(--violet);background:rgba(176,96,255,0.15);}
+.slide-arrow.prev{left:12px;}.slide-arrow.next{right:12px;}
 
 .projects-section{background:var(--s1);}
 .projects-wrap{max-width:1080px;margin:0 auto;padding:8rem 2rem;}
@@ -186,7 +202,7 @@ footer{padding:2rem;text-align:center;font-size:9px;letter-spacing:.18em;text-tr
   <div class="hero-bg-grid"></div>
   <div class="hero-bg-glow"></div>
   <div class="avatar-ring"><div class="avatar-inner">OPC</div></div>
-  <p class="hero-eyebrow">Marketing.Event· Cycling passion</p>
+  <p class="hero-eyebrow">Sales· Marketing· Event · Cycling passion</p>
   <h1 class="hero-title">Rides, That<br><span class="line2">Define Culture</span></h1>
   <p class="hero-sub">Bridging elite performance, community, and brand storytelling through product development, precision event execution, and cyclist engagement.</p>
   <a href="#passion" class="hero-cta">See My Passion</a>
@@ -199,9 +215,9 @@ footer{padding:2rem;text-align:center;font-size:9px;letter-spacing:.18em;text-tr
       <div class="video-copy">
         <p class="section-kicker">The Passion Behind the Work</p>
         <h2 class="section-heading">More Than<br>a <em>Job</em></h2>
-        <p>單車不只是我的職業，更是我理解人、理解社群的方式。每一場活動背後，是無數個凌晨的路線勘查、與車手的深度對話，以及對細節永不妥協的執著。</p>
+        <p>運動產業不只是種工作，更是我理解人、理解社群的方式。每場活動、每個產品背後，是對細節永不妥協的執著。</p>
         <div>
-          <div class="video-meta-item"><span class="video-meta-label">地點</span><span class="video-meta-text">Taiwan Mountain Passes</span></div>
+          <div class="video-meta-item"><span class="video-meta-label">地點</span><span class="video-meta-text">Thailand</span></div>
           <div class="video-meta-item"><span class="video-meta-label">年份</span><span class="video-meta-text">2023 — 2024</span></div>
           <div class="video-meta-item"><span class="video-meta-label">角色</span><span class="video-meta-text">Event Manager · Product Lead</span></div>
         </div>
@@ -489,12 +505,12 @@ footer{padding:2rem;text-align:center;font-size:9px;letter-spacing:.18em;text-tr
   <div class="contact-inner">
     <p class="section-kicker">Let's Ride Together</p>
     <h2 class="contact-title">Open to<br>New Terrain</h2>
-    <p class="contact-sub">對高端單車活動策劃、產品開發或品牌合作感興趣？<br>歡迎聯絡，一起創造下一個里程碑。</p>
+    <p class="contact-sub">對高端單車活動策劃、產品開發或銷售通路合作感興趣？<br>歡迎聯絡，一起創造下一個里程碑。</p>
     <div class="contact-row">
-      <a href="mailto:hello@raphapm.com" class="contact-btn primary">Email</a>
-      <a href="#" class="contact-btn">LinkedIn</a>
-      <a href="#" class="contact-btn">Instagram</a>
-      <a href="#" class="contact-btn">Download CV</a>
+      <a href="mailto:sixthxenz@gmail.com" class="contact-btn primary">Email</a>
+      <a href="https://www.linkedin.com/in/oliver-chen-6000a65b/" class="contact-btn">LinkedIn</a>
+      <a href="https://www.instagram.com/oliverpaulchen/" class="contact-btn">Instagram</a>
+      <a href="https://drive.google.com/file/d/1Yyf2wREkv_6ZDWbzS60kIeqL1NAhhoG-/view?usp=sharing" class="contact-btn">Download CV</a>
     </div>
   </div>
 </div>
@@ -524,13 +540,14 @@ const values=[
   {num:"03",title:"社群深耕經營",desc:"不只是辦活動，更是建立連結熱愛騎乘的人的平台，讓 Rapha 文化持續擴散。"},
   {num:"04",title:"數據驅動迭代",desc:"以 NPS、參與率與媒體聲量為指標，持續優化每次活動的產品設計與傳播策略。"}
 ];
-document.getElementById('vals').innerHTML=values.map(v=>`<div class="value-item"><div class="val-num">${v.num}</div><div class="val-title">${v.title}</div><div class="val-desc">${v.desc}</div></div>`).join('');
+const valImgs=['assets/bring-01.jpg','assets/bring-02.jpg','assets/bring-03.jpg','assets/bring-04.jpg'];
+document.getElementById('vals').innerHTML=values.map((v,i)=>`<div class="value-item"><div class="val-num">${v.num}</div><div class="val-title">${v.title}</div><div class="val-desc">${v.desc}</div><div class="val-img-slot"><img src="${valImgs[i]}" alt="${v.title}" onerror="this.style.display='none'"><span class="slot-label">assets/bring-0${i+1}.jpg</span></div></div>`).join('');
 
 /* ── Projects ── */
 const projects=[
-  {name:"Rapha Prestige\nTaiwan 2024",index:"Project 01",challenge:"在台灣山地地形設計一場兼具極致挑戰性與頂級體驗感的多日越野活動，吸引國際車手參與。",solution:"主導從路線規劃、補給邏輯、報名系統到現場執行的全流程產品開發，協調 15+ 跨域供應商。",result:"200+ 名車手，NPS 92 分，媒體觸及 500K+",stat:"NPS 92",tags:["Event Design","Route Planning","Operations","Brand"],palette:["#180828","#6020a0","#b060ff","#ff0055"]},
-  {name:"RCC Taipei\nChapter Launch",index:"Project 02",challenge:"在競爭激烈的台北市場建立 Rapha Cycling Club 據點，打造差異化的社群黏著體驗。",solution:"制定社群策略、設計入會旅程與週期性活動排程，整合線上線下內容行銷強化成員歸屬感。",result:"首年 350+ 會員，月活躍率 68%，APAC 成長最快 RCC",stat:"350+ Members",tags:["Community","Product Strategy","CRM","Content"],palette:["#080818","#1a1040","#4040c0","#8080ff"]},
-  {name:"Cycling Kit\nProduct Sprint",index:"Project 03",challenge:"因應活動限定系列需求，在 8 週內完成從設計簡報到首批生產的完整產品開發週期。",solution:"協調設計、採購、品管與物流，導入敏捷式迭代流程，確保品質與時程雙重達標。",result:"限定款 3 天售罄，退貨率 <1%，建立快速商品化 SOP",stat:"Sold Out × 3d",tags:["Product Dev","Supply Chain","Agile","GTM"],palette:["#1a0810","#801030","#d04060","#ff6080"]}
+  {name:"Rapha Prestige\nTaiwan 2024",index:"Project 01",challenge:"在台灣山地地形設計一場兼具極致挑戰性與頂級體驗感的多日越野活動，吸引國際車手參與。",solution:"主導從路線規劃、補給邏輯、報名系統到現場執行的全流程產品開發，協調 15+ 跨域供應商。",result:"200+ 名車手，NPS 92 分，媒體觸及 500K+",stat:"NPS 92",tags:["Event Design","Route Planning","Operations","Brand"],palette:["#180828","#6020a0","#b060ff","#ff0055"],slides:["assets/p01-slide1.jpg","assets/p01-slide2.jpg","assets/p01-slide3.jpg"]},
+  {name:"RCC Taipei\nChapter Launch",index:"Project 02",challenge:"在競爭激烈的台北市場建立 Rapha Cycling Club 據點，打造差異化的社群黏著體驗。",solution:"制定社群策略、設計入會旅程與週期性活動排程，整合線上線下內容行銷強化成員歸屬感。",result:"首年 350+ 會員，月活躍率 68%，APAC 成長最快 RCC",stat:"350+ Members",tags:["Community","Product Strategy","CRM","Content"],palette:["#080818","#1a1040","#4040c0","#8080ff"],slides:[]},
+  {name:"Cycling Kit\nProduct Sprint",index:"Project 03",challenge:"因應活動限定系列需求，在 8 週內完成從設計簡報到首批生產的完整產品開發週期。",solution:"協調設計、採購、品管與物流，導入敏捷式迭代流程，確保品質與時程雙重達標。",result:"限定款 3 天售罄，退貨率 <1%，建立快速商品化 SOP",stat:"Sold Out × 3d",tags:["Product Dev","Supply Chain","Agile","GTM"],palette:["#1a0810","#801030","#d04060","#ff6080"],slides:["assets/p03-slide1.jpg","assets/p03-slide2.jpg","assets/p03-slide3.jpg"]}
 ];
 
 function drawArt(canvas,p,animated){
@@ -551,14 +568,68 @@ const pList=document.getElementById('projects-list');
 projects.forEach((p,i)=>{
   const card=document.createElement('div');card.className='project-card';
   const visual=document.createElement('div');visual.className='card-visual';
-  const canvas=document.createElement('canvas');canvas.width=800;canvas.height=1040;canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;';
+
+  const canvas=document.createElement('canvas');canvas.width=800;canvas.height=1040;
+  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;transition:opacity .6s ease;';
+  canvas.id='proj-canvas-'+i;
+
   const numEl=document.createElement('div');numEl.className='card-overlay-num';numEl.textContent='0'+(i+1);
   visual.appendChild(canvas);visual.appendChild(numEl);
+
+  if(p.slides&&p.slides.length>0){
+    const slidesWrap=document.createElement('div');slidesWrap.className='card-slides';
+    p.slides.forEach((src,si)=>{
+      const img=document.createElement('img');
+      img.src=src;img.className='card-slide'+(si===0?' active':'');
+      img.alt='slide '+(si+1);
+      img.onerror=function(){this.style.display='none';};
+      slidesWrap.appendChild(img);
+    });
+
+    const prevBtn=document.createElement('button');prevBtn.className='slide-arrow prev';prevBtn.innerHTML='&#8592;';
+    const nextBtn=document.createElement('button');nextBtn.className='slide-arrow next';nextBtn.innerHTML='&#8594;';
+    const dotsWrap=document.createElement('div');dotsWrap.className='slide-dots';
+    p.slides.forEach((_,si)=>{
+      const d=document.createElement('button');d.className='slide-dot'+(si===0?' active':'');
+      d.addEventListener('click',()=>goSlide(i,si));dotsWrap.appendChild(d);
+    });
+
+    prevBtn.addEventListener('click',()=>changeSlide(i,-1));
+    nextBtn.addEventListener('click',()=>changeSlide(i,1));
+    visual.appendChild(slidesWrap);visual.appendChild(prevBtn);visual.appendChild(nextBtn);visual.appendChild(dotsWrap);
+  }
+
   const content=document.createElement('div');content.className='card-content';
   content.innerHTML=`<div class="card-index">${p.index}</div><div class="card-name">${p.name.replace('\n','<br>')}</div><div class="card-meta"><div class="card-meta-row"><span class="card-meta-label">挑戰</span><span class="card-meta-text">${p.challenge}</span></div><div class="card-meta-row"><span class="card-meta-label">策略</span><span class="card-meta-text">${p.solution}</span></div><div class="card-meta-row"><span class="card-meta-label">成果</span><span class="card-meta-text">${p.result}</span></div></div><div class="card-stat">${p.stat}</div><div class="card-tags">${p.tags.map(t=>`<span class="card-tag">${t}</span>`).join('')}</div>`;
   card.appendChild(visual);card.appendChild(content);pList.appendChild(card);
+
   let animated=false;drawArt(canvas,p.palette,false);
   new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting&&!animated){animated=true;card.classList.add('visible');drawArt(canvas,p.palette,true);}});},{threshold:.15}).observe(card);
+});
+
+const slideStates={};
+function goSlide(projIdx,slideIdx){
+  const card=pList.children[projIdx];
+  const imgs=card.querySelectorAll('.card-slide');
+  const dots=card.querySelectorAll('.slide-dot');
+  const canvas=card.querySelector('canvas');
+  imgs.forEach((img,si)=>img.classList.toggle('active',si===slideIdx));
+  dots.forEach((d,si)=>d.classList.toggle('active',si===slideIdx));
+  slideStates[projIdx]=slideIdx;
+  const hasVisible=[...imgs].some(img=>img.style.display!=='none'&&img.classList.contains('active'));
+  if(canvas)canvas.style.opacity=hasVisible?'0':'1';
+}
+function changeSlide(projIdx,dir){
+  const p=projects[projIdx];if(!p.slides||!p.slides.length)return;
+  const cur=slideStates[projIdx]||0;
+  const next=(cur+dir+p.slides.length)%p.slides.length;
+  goSlide(projIdx,next);
+}
+projects.forEach((p,i)=>{
+  if(p.slides&&p.slides.length){
+    slideStates[i]=0;
+    setInterval(()=>changeSlide(i,1),(i===0?4000:4600));
+  }
 });
 
 /* ── SRAM Shifter Game ── */
