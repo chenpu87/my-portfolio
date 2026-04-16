@@ -525,7 +525,7 @@ footer{padding:2rem;text-align:center;font-size:9px;letter-spacing:.18em;text-tr
   </div>
 </div>
 
-<footer>© 2025 Rapha PM · Crafted with passion for cycling culture</footer>
+<footer>© 2026 O/P/C· Crafted with passion for cycling culture</footer>
 
 <script>
 /* ── Video ── */
@@ -580,7 +580,7 @@ projects.forEach((p,i)=>{
   const visual=document.createElement('div');visual.className='card-visual';
 
   const canvas=document.createElement('canvas');canvas.width=800;canvas.height=1040;
-  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;transition:opacity .6s ease;';
+  canvas.style.cssText='position:absolute;inset:0;width:100%;height:100%;transition:opacity .6s ease;';z-index:0
   canvas.id='proj-canvas-'+i;
 
   const numEl=document.createElement('div');numEl.className='card-overlay-num';numEl.textContent='0'+(i+1);
